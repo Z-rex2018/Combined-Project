@@ -1,6 +1,10 @@
 body {
 	margin: 0px;
 	padding: 0px;
+	overflow-x: none;
+	overflow-y: none;
+	width: 100%;
+	overflow: none;
 }
 
 a:focus {
@@ -79,7 +83,7 @@ a:focus {
 #gray-background-three {
 	-webkit-clip-path: polygon(0 0, 100% 0, 0 100%, 0 100%);
 	clip-path: polygon(0 0, 100% 0, 0 100%, 0 100%);
-	background:linear-gradient(to top, #082341, #05212d) ;
+	background:linear-gradient(to right, #082341, #05212d) ;
 	z-index: -30;
 }
 
@@ -115,20 +119,18 @@ i {
 }
 
 #homebar {
+	align-items: center;
 	align-self: center;
-	justify-content: center;
-	justify-self: center;
+	justify-self: right;
 	height: 50px;
 	margin-right: 5px;
 	color: #cccccc;
 	display: grid;
 	grid-template-columns: repeat(6, minmax(100px, 225px));
 	grid-template-rows: 1fr;
-	justify-items: center;
 	font-family: 'Nova Round';
 	font-size: 25px;
-	align-items: center;
-	align-content: center;
+	
 }
 
 #discover {
@@ -398,6 +400,25 @@ button {
     cursor: pointer;
 }
 
+
+ .toggle {
+    padding: 1em;
+    color: #cccccc;
+    size: 20px;
+    visibility: hidden;
+}
+
+#homebar a {
+    text-decoration: none;
+
+}
+#homebar .toggle {
+    padding: 1em;
+    color: black;
+}
+
+
+
 /* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.6s;
@@ -426,12 +447,23 @@ button {
 @media only screen and (max-width: 600px) {
 	#homebar {
 		width: 80%;
-		margin-left: 5px;
-		margin-top: 180px;
-		
+		margin-top: 0px;
+		margin-bottom: 50px;
+	}
+	.dropdown {
+		background: black;
+		height: 25px;
+		width: 100%
+	}
+	 .not-active div {
+		visibility: hidden;
+	}
+	.dropdown .dropdown-content {
+		visibility: hidden;
 	}
 
 	.dropdown:hover .dropdown-content {
+		visibility: visible;
 		position: absolute;
 		z-index: 100000;
 	}
@@ -440,26 +472,23 @@ button {
 		font-size: 5vw;
 	}
 	.dropbtn {
-		background: inherit;
-		width: 90vw;
+		background: rgba(0,0,0,.99);
+		width: 100vw;
 		text-align: left;
 		padding-top: 0px;
+
 	}
 
 	.dropdown-content {
     	display: none;
-    	position: relative;
+    	position: absolute;
     	justify-content: center;
     	background: #082341;
     	width: 50vw;
     	left: 25%;
     }
 
-    .home {
-    	position: static;
-    	text-align: center;	
-    	visibility: hidden;
-    }
+    
 
     #picture {
     	visibility: hidden;
@@ -483,80 +512,44 @@ button {
 		margin-left: 0px;
 	}
 
+	 .toggle {
+        background: inherit;
+        color: #cccccc;
+        visibility: visible;
 
+    }
+    
+     .active div {
+        display: block;
+        visibility: visible;
+    }
+
+    
 }
+
+
+
 
 @media only screen and (min-width: 600px)and (max-width: 992px) {
-	.dropdown:hover .dropdown-content {
-		position: absolute;
-		z-index: 100000;
-	}
-
 	#homebar {
-		width: 250px;
-		margin-left: 5px;
-		margin-top: 40px;
-		
+		width: 80%;
+		margin-top: 0px;
+		margin-bottom: 50px;
 	}
-	.dropbtn{
-		background: inherit;
-		width: 95vw;
-		text-align: left;
-		padding-top: 0px;
+	.dropdown {
+		background: black;
+		height: 25px;
+		width: 100%
 	}
-
-	button {
-		font-size: 4.5vw;
+	 .not-active div {
+		visibility: hidden;
 	}
-
-	.dropdown-content {
-    	display: none;
-    	position: relative;
-    	justify-content: center;
-    	background: #082341;
-    	width: 70vw;
-    	left: 25%;
-    }
-
-    .home {
-    	position: static;
-    	padding-top: 150px;
-    	text-align: center;	
-    	visibility: hidden;
-    }
-
-    #picture {
-    	visibility: hidden;
-    }
-
-    #title2  {
-		font-family: 'Cinzel', serif;
-		font-size: 10vw;
-		font-weight: 100;
-		color: #e6e6e6;
-		z-index: 10;
-		margin-left: 0px;
-	}
-
-	#title3  {
-		font-family: 'Cinzel', serif;
-		font-size: 10vw;
-		font-weight: 100;
-		color: #e6e6e6;
-		z-index: 10;
-		margin-left: 0px;
-	}
-}
-/*phone screen*/
-@media only screen and (max-device-width: 600px) {
-	#homebar {
-		width: 100%;
-		margin-left: 5px;
-		margin-top: 180px;
-		
+	.dropdown .dropdown-content {
+		visibility: hidden;
 	}
 
 	.dropdown:hover .dropdown-content {
+		visibility: visible;
 		position: absolute;
 		z-index: 100000;
 	}
@@ -564,27 +557,24 @@ button {
 	button {
 		font-size: 5vw;
 	}
-	.dropbtn{
-		background: inherit;
-		width: 250px;
+	.dropbtn {
+		background: rgba(0,0,0,.99);
+		width: 100vw;
 		text-align: left;
 		padding-top: 0px;
+
 	}
 
 	.dropdown-content {
     	display: none;
-    	position: relative;
+    	position: absolute;
     	justify-content: center;
     	background: #082341;
-    	width: 70vw;
+    	width: 50vw;
     	left: 25%;
     }
 
-    .home {
-    	position: static;
-    	text-align: center;	
-    	visibility: hidden;
-    }
+    
 
     #picture {
     	visibility: hidden;
@@ -608,6 +598,25 @@ button {
 		margin-left: 0px;
 	}
 
-}
+	 .toggle {
+        background: inherit;
+        color: #cccccc;
+        visibility: visible;
 
+    }
+    
+     .active div {
+        display: block;
+        visibility: visible;
+    }
+}
+/*phone screen*/
+
+
+@media (min-width: 992px) {
+    #homebar .toggle {
+        display: none;
+    }
+
+}
 
